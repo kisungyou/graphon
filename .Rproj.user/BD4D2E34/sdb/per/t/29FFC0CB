@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Estimate edge probabilities by neighborhood smoothing\n#'\n#' \\code{est.nbdsmooth} takes the expectation of the adjacency matrix\n#' in that it directly aims at estimating network edge probabilities without\n#' imposing structural assumptions as of usual graphon estimation requires,\n#' such as piecewise lipschitz condition. Note that this method is\n#' for symmetric adjacency matrix only, i.e., undirected networks.\n#'\n#'\n#' @param A either \\describe{\n#' \\item{Case 1.}{an \\code{(n-by-n)} binary adjacency matrix, or}\n#' \\item{Case 2.}{a vector containing multiple of \\code{(n-by-n)} binary adjacency matrices.}\n#' }\n#'\n#' @return a named list containing\n#' \\describe{\n#' \\item{h}{a quantile threshold value.}\n#' \\item{P}{a matrix of estimated edge probabilities.}\n#' }\n#'\n#' @examples\n#' ## generate a graphon of type No.4 with 3 clusters\n#' W = gmodel.preset(3,id=4)\n#'\n#' ## create a probability matrix for 100 nodes\n#' graphW = gmodel.block(W,n=100)\n#' P = graphW$P\n#'\n#' ## draw 5 observations from a given probability matrix\n#' A = gmodel.P(P,rep=5,symmetric.out=TRUE)\n#'\n#' ## run nbdsmooth algorithm\n#' res2 = est.nbdsmooth(A)\n#'\n#' ## compare true probability matrix and estimated ones\n#' par(mfrow=c(1,2))\n#' image(P); title(\"original P\")\n#' image(res2$P); title(\"nbdsmooth estimated P\")\n#'\n#'\n#' @references Zhang, Y., Levina, E., and Zhu, J. (2015) \\emph{Estimating neighborhood edge\n#' probabilities by neighborhood smoothing}. Arxiv:1509.08588\n#' @export\nest.nbdsmooth <- function(A){\n  # CASE 1. VECTORIAL CASE\n  if (is.vector(A)&&is.list(A)){\n    check1 = unlist(lapply(A,nrow))\n    check2 = unlist(lapply(A,is.binAdj))\n\n    cond1 = (length(unique(check1))==1)\n    cond2 = (all(check2==TRUE))\n    if (!(cond1&&cond2)){\n      stop(\"* est.nbdsmooth : input vector A is not proper.\")\n    }\n    # Main Computation for case 1\n    nelem = nrow(A[[1]])\n    P = matrix(0,nelem,nelem)\n\n    for (i in 1:length(A)){\n      tmpres = est.nbdsmoothsingle(A[[i]])\n      P = P + tmpres$P\n    }\n    P = P/length(A)\n\n    res = vector(\"list\")\n    res$h = tmpres$h\n    res$P = P\n  } else {\n  # CASE 2. SINGLE CASE\n    if (!is.binAdj(A)){\n      stop(\"* est.nbdsmooth : input A is not a proper adjacency matrix.\")\n    }\n    # Main Computation for case 2\n    res = est.nbdsmoothsingle(A)\n  }\n\n  # Return Output\n  return(res)\n}\n\n\nest.nbdsmoothsingle <- function(A){\n  # 1. size\n  N = nrow(A)\n  h = sqrt(log(N)/N)\n\n  # 2. compute dissimilarity measure\n  D = aux_nbdsmooth(A, N)\n\n  # 3. quantiled as logical\n  kernel_mat = matrix(0,N,N)\n  for (i in 1:N){\n    kernel_mat[i,] = as.double(D[i,]<quantile(D[i,],h))\n  }\n\n  # 4. L1 normalization of each row\n  kernel_mat = kernel_mat/(outer(rowSums(kernel_mat),rep(1,N))+1e-10)\n\n  # 5. Compute P\n  P = kernel_mat %*% A;\n  P = (P+t(P))/2;\n\n  ## (3) outputs\n  res = vector(\"list\")\n  res$h = h\n  res$P = P\n  return(res)\n}\n",
+    "created" : 1504642742790.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4241706812",
+    "id" : "29FFC0CB",
+    "lastKnownWriteTime" : 1504642284,
+    "last_content_update" : 1504642284,
+    "path" : "~/Desktop/ver_0.1 .1/graphon/R/est.nbdsmooth.R",
+    "project_path" : "R/est.nbdsmooth.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

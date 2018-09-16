@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Generate one of pre-specified graphons.\n#'\n#' \\code{gmodel.preset} generates one of pre-specified graphons\n#' of size (n-by-n). Users can select one of 10 different graphons by\n#' their \\code{id}, an integer from 1 to 10. The table of available graphons\n#' follows that of the reference article given below.\n#'\n#' @param n the number of nodes for a graphon to be generated.\n#' @param id an integer from 1 to 10, each corresponding to a specific graphon model.\n#' @param sort a logical value; TRUE to sort in an decreasing order of degree, FALSE otherwise.\n#'\n#' @return an \\eqn{(n-by-n)} graphon matrix.\n#'\n#' @examples\n#' ## Generate 3 random graphons of nodal size 100.\n#' n  = 100\n#' r3 = (sample(1:10,3))\n#' W1 = gmodel.preset(n,id=r3[1])\n#' W2 = gmodel.preset(n,id=r3[2])\n#' W3 = gmodel.preset(n,id=r3[3])\n#'\n#' ## Generate corresponding observations and plot them\n#' A1 = gmodel.P(W1)\n#' A2 = gmodel.P(W2)\n#' A3 = gmodel.P(W3)\n#'\n#' \\dontshow{\n#'  for (i in 1:10){\n#'    W = gmodel.preset(100,id=i)\n#'  }\n#' }\n#'\n#' @references Chan, S.H. and Airoldi, E.M. (2014) \\emph{A consistent histogram\n#' estimator for exchangeable graph models}. Journal of Machine Learning Research Workshop\n#' and Conference Proceedings, Vol.32, No.1:208-216.\n#' @export\ngmodel.preset <- function(n, id=1, sort=TRUE){\n  ## Parameters\n  if (n<=1){\n    stop(\"* gmodel.preset : the number of nodes should be >1.\")\n  }\n  n = as.integer(n)\n  if (!(id %in% 1:10)){\n    stop(\"* gmodel.preset : graphon model id is an integer in [1,10].\")\n  }\n  id = as.integer(id)\n\n  ## Pass to CPP part\n  vecgrid = seq(0,1,length.out=n)\n  W = aux_preset(vecgrid,n,id)\n\n  ## Decreasing degree\n  if (sort){\n    pos = order(colSums(W),decreasing=TRUE)\n    Wtrue = W[pos,pos]\n    return(Wtrue)\n  } else {\n    return(W)\n  }\n}\n",
+    "created" : 1504473150213.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "124415657",
+    "id" : "82ACDF71",
+    "lastKnownWriteTime" : 1504533298,
+    "last_content_update" : 1504533298463,
+    "path" : "~/Desktop/graphon/R/gmodel.preset.R",
+    "project_path" : "R/gmodel.preset.R",
+    "properties" : {
+        "notebook_format" : "html_document"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

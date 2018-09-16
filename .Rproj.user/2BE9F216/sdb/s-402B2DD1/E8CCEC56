@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Estimate graphons based via Universal Singular Value Thresholding\n#'\n#' \\code{est.USVT} is a generic matrix estimation method first\n#' proposed for the case where a noisy realization of the matrix is given.\n#' Universal Singular Value Thresholding (USVT), as its name suggests,\n#' utilizes singular value decomposition of observations in addition to\n#' thresholding over singular values achieved from the decomposition.\n#'\n#' @examples\n#' ## generate a graphon of type No.1 with 3 clusters\n#' W = gmodel.preset(3,id=1)\n#'\n#' ## create a probability matrix for 100 nodes\n#' graphW = gmodel.block(W,n=100)\n#' P = graphW$P\n#'\n#' ## draw 5 observations from a given probability matrix\n#' A = gmodel.P(P,rep=5,symmetric.out=TRUE)\n#'\n#' ## run USVT algorithm with different eta values (0.01,0.1)\n#' res2 = est.USVT(A,eta=0.01)\n#' res3 = est.USVT(A,eta=0.1)\n#'\n#' ## compare true probability matrix and estimated ones\n#' par(mfrow=c(1,3))\n#' image(P); title(\"original P\")\n#' image(res2$P); title(\"USVT with eta = 0.01\")\n#' image(res3$P); title(\"USVT with eta = 0.1\")\n#'\n#' @param A either \\describe{\n#' \\item{Case 1.}{an \\code{(n-by-n)} binary adjacency matrix, or}\n#' \\item{Case 2.}{a vector containing multiple of \\code{(n-by-n)} binary adjacency matrices.}\n#' }\n#' @param eta a positive number in (0,1) to control the level of thresholding.\n#'\n#'\n#' @return a named list containing\n#' \\describe{\n#' \\item{svs}{a vector of sorted singular values.}\n#' \\item{thr}{a threshold to disregard singular values.}\n#' \\item{P}{a matrix of estimated edge probabilities.}\n#' }\n#'\n#'@references Chatterjee, S. (2015) \\emph{Matrix estimation by universal singular\n#'value thresholding}. The Annals of Statistics, Vol.43, No.1:177-214.\n#'\n#' @export\nest.USVT <- function(A,eta=0.01){\n  ## (1) Preprocessing\n  # 1. check if A is adjacency\n  if (is.vector(A)&&is.list(A)){\n    check1 = unlist(lapply(A,nrow))\n    check2 = unlist(lapply(A,is.binAdj))\n\n    cond1 = (length(unique(check1))==1)\n    cond2 = (all(check2==TRUE))\n    if (!(cond1&&cond2)){\n      stop(\"* est.usvt : input vector A is not proper.\")\n    }\n    sizem = dim(A[[1]])[1]\n\n    matA = matrix(0,sizem,sizem)\n    for (i in 1:length(A)){\n      matA = matA + A[[i]]\n    }\n    matA = matA/length(A)\n  } else {\n    if (!is.binAdj(A)){\n      stop(\"* est.usvt : input A is not a proper adjacency matrix.\")\n    }\n    matA = A\n  }\n\n  # 2. eta\n  if ((length(eta)>1)||(!is.numeric(eta))||(eta<=0)||(eta>=1)){\n    stop(\"* est.usvt : a parameter eta should be in (0,1).\")\n  }\n\n  ## (2) main computation\n  # 2-1. parameter\n  thr = (2+eta)*sqrt(nrow(matA))\n  eA = svd(matA);\n  idxthr = which(eA$d>=thr)\n\n  # 2-2. recon\n  if (length(idxthr)==1){\n    P = outer(eA$u[,idxthr],eA$v[,idxthr])*eA$d[idxthr]\n  } else {\n    P = (eA$u[,idxthr] %*% diag(eA$d[idxthr]) %*% t(eA$v[,idxthr]))\n  }\n\n  # 2-3. arrange for values\n  P[which(P>=1)] = 1\n  P[which(P<=0)] = 0\n\n  ## (3) outputs\n  res = vector(\"list\")\n  res$svs = sort(eA$d,decreasing=TRUE)\n  res$thr = thr\n  res$P   = P\n  return(res)\n}\n",
+    "created" : 1510082281793.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3054014793",
+    "id" : "E8CCEC56",
+    "lastKnownWriteTime" : 1504642277,
+    "last_content_update" : 1504642277,
+    "path" : "~/Desktop/graphon/R/est.USVT.R",
+    "project_path" : "R/est.USVT.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
