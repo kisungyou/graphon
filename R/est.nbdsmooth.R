@@ -19,6 +19,7 @@
 #' }
 #'
 #' @examples
+#' \dontrun{
 #' ## generate a graphon of type No.4 with 3 clusters
 #' W = gmodel.preset(3,id=4)
 #'
@@ -36,6 +37,7 @@
 #' par(mfrow=c(1,2))
 #' image(P); title("original P")
 #' image(res2$P); title("nbdsmooth estimated P")
+#' }
 #'
 #' @references
 #' \insertRef{Zhang2015}{graphon}

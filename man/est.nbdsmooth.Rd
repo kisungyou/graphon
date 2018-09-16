@@ -27,6 +27,7 @@ such as piecewise lipschitz condition. Note that this method is
 for symmetric adjacency matrix only, i.e., undirected networks.
 }
 \examples{
+\dontrun{
 ## generate a graphon of type No.4 with 3 clusters
 W = gmodel.preset(3,id=4)
 
@@ -44,6 +45,7 @@ res2 = est.nbdsmooth(A)
 par(mfrow=c(1,2))
 image(P); title("original P")
 image(res2$P); title("nbdsmooth estimated P")
+}
 
 }
 \references{
