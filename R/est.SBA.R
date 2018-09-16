@@ -7,16 +7,16 @@
 #'  histogram estimator.
 #'
 #' @param A either \describe{
-#' \item{Case 1.}{an \code{(n-by-n)} binary adjacency matrix, or}
-#' \item{Case 2.}{a vector containing multiple of \code{(n-by-n)} binary adjacency matrices.}
+#' \item{Case 1.}{an \eqn{(n\times n)} binary adjacency matrix, or}
+#' \item{Case 2.}{a vector containing multiple of \eqn{(n\times n)} binary adjacency matrices.}
 #' }
 #' @param delta a precision parameter larger than 0.
 #'
 #' @return a named list containing
 #' \describe{
-#' \item{H}{a \code{(K-by-K)} matrix fo 3D histogram.}
-#' \item{P}{an \code{(n-by-n)} corresponding probability matrix.}
-#' \item{B}{a length-\code{K} list where each element is a vector of nodes/indices
+#' \item{H}{a \eqn{(K\times K)} matrix fo 3D histogram.}
+#' \item{P}{an \eqn{(n\times n)} corresponding probability matrix.}
+#' \item{B}{a length-\eqn{K} list where each element is a vector of nodes/indices
 #' for each cluster.}
 #' }
 #'
@@ -43,12 +43,11 @@
 #' image(res3$P); title("SBA with delta=0.5")
 #' image(res4$P); title("SBA with delta=0.8")
 #'
-#' @references Airoldi, E.M., Costa, T.B., and Chan, S.H. (2013) \emph{Stochastic
-#' blockmodel approximation of a graphon: Theory and consistent estimation}. Advances
-#' in Neural Information Processing Systems,  692-700.
-#' @references Chan, S.H. and Airoldi, E.M. (2014) \emph{A consistent histogram
-#' estimator for exchangeable graph models}. Journal of Machine Learning Research Workshop
-#' and Conference Proceedings, Vol.32, No.1:208-216.
+#' @references
+#' \insertRef{Airoldi2013}{graphon}
+#'
+#' \insertRef{chan2014}{graphon}
+#'
 #'
 #' @seealso \code{\link{est.LG}}
 #' @export

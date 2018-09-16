@@ -8,15 +8,14 @@ cv.SBA(A, vecdelta = seq(0.1, 1, by = 0.1))
 }
 \arguments{
 \item{A}{either \describe{
-\item{Case 1.}{an \code{(n-by-n)} binary adjacency matrix, or}
-\item{Case 2.}{a vector containing multiple of \code{(n-by-n)} binary adjacency matrices.}
+\item{Case 1.}{an \eqn{(n\times n)} binary adjacency matrix, or}
+\item{Case 2.}{a vector containing multiple of \eqn{(n\times n)} binary adjacency matrices.}
 }}
 
 \item{vecdelta}{a vector containing target delta values to be tested.}
 }
 \value{
-a named list containing
-\describe{
+a named list containing \describe{
 \item{optdelta}{optimal delta values that minimize the cross validation risk J.}
 \item{J}{cross validation risk values.}
 }
@@ -29,6 +28,7 @@ tests multiple of delta values to find the optimal one that minimizes
 the cross validation risk. Note that the optimal delta is not bound to be a single value.
 }
 \examples{
+\dontrun{
 ## generate a graphon of type No.8 with 3 clusters
 W = gmodel.preset(3,id=8)
 
@@ -42,17 +42,14 @@ A = gmodel.P(P,rep=15)
 ## cross validate SBA algorithm over different deltas
 rescv = cv.SBA(A,vecdelta=c(0.1,0.5,0.9))
 print(rescv$optdelta)
+}
 
 
 }
 \references{
-Airoldi, E.M., Costa, T.B., and Chan, S.H. (2013) \emph{Stochastic
-blockmodel approximation of a graphon: Theory and consistent estimation}. Advances
-in Neural Information Processing Systems,  692-700.
+\insertRef{chan2014}{graphon}
 
-Chan, S.H. and Airoldi, E.M. (2014) \emph{A consistent histogram
-estimator for exchangeable graph models}. Journal of Machine Learning Research Workshop
-and Conference Proceedings, Vol.32, No.1:208-216.
+\insertRef{Airoldi2013}{graphon}
 }
 \seealso{
 \code{\link{est.SBA}}

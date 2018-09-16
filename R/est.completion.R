@@ -7,6 +7,7 @@
 #' See \code{\link[ROptSpace]{OptSpace}} for a more detailed introduction.
 #'
 #' @examples
+#' \dontrun{
 #' ## generate a graphon of type No.5 with 3 clusters
 #' W = gmodel.preset(3,id=5)
 #'
@@ -27,13 +28,14 @@
 #' image(res_r3); title("rank 3")
 #' image(res_r9); title("rank 9")
 #' image(res_rN); title("guessed rank")
+#' }
 #'
-#' @references Keshavan, R.H., Montanari, A., and Oh, S. (2009) \emph{Matrix Completion
-#' from a Few Entries}. Arxiv:0901.3150.
+#' @references
+#' \insertRef{Keshavan2010}{graphon}
 #'
 #' @param A either \describe{
-#' \item{Case 1.}{an \code{(n-by-n)} binary adjacency matrix, or}
-#' \item{Case 2.}{a vector containing multiple of \code{(n-by-n)} binary adjacency matrices.}
+#' \item{Case 1.}{an \eqn{(n\times n)} binary adjacency matrix, or}
+#' \item{Case 2.}{a list containing multiple of \eqn{(n\times n)} binary adjacency matrices.}
 #' }
 #' @param rank an estimated rank condition for the matrix; \code{NA} for automatic guessing
 #' of a rank, or a positive integer for a user-supplied rank assumption.
@@ -44,7 +46,7 @@
 #' @param adjust a logical value; \code{TRUE} to ignore a guessed rank and set it as 2 upon
 #' numerical errors, \code{FALSE} to stop the code.
 #'
-#' @return an \code{(n-by-n)} corresponding probability matrix.
+#' @return an \eqn{(n\times n)} corresponding probability matrix.
 #'
 #' @export
 est.completion <- function(A,rank=NA,tolerance=1e-3,maxiter=20,progress=FALSE,adjust=TRUE){

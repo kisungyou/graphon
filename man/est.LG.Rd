@@ -7,16 +7,16 @@
 est.LG(A, K)
 }
 \arguments{
-\item{A}{an \code{(n-by-n)} binary adjacency matrix.}
+\item{A}{an \eqn{(n\times n)} binary adjacency matrix.}
 
 \item{K}{the number of blocks provided by an user.}
 }
 \value{
 a named list containing
 \describe{
-\item{H}{a \code{(K-by-K)} matrix of 3D histogram.}
-\item{P}{an \code{(n-by-n)} corresponding probability matrix.}
-\item{B}{a length-\code{K} list where each element is a vector of nodes/indices
+\item{H}{a  \eqn{(K\times K)} matrix of 3D histogram.}
+\item{P}{an \eqn{(n\times n)} corresponding probability matrix.}
+\item{B}{a length-\eqn{K} list where each element is a vector of nodes/indices
 for each cluster.}
 }
 }
@@ -27,6 +27,7 @@ Then a consistent histogram estimator is utilized to estimate graphons based on
 estimated blocks in a given network.
 }
 \examples{
+\dontrun{
 ## generate a graphon of type No.10 with 3 clusters
 W = gmodel.preset(3,id=10)
 
@@ -48,17 +49,13 @@ image(P); title("main")
 image(res2$P); title("LG with K=2")
 image(res3$P); title("LG with K=3")
 image(res4$P); title("LG with K=4")
-
+}
 
 }
 \references{
-Channarond, A., Daudin, J., and Robin, S. (2012) \emph{Classification
-and estimation in the SBM based on empirical degrees}. Electronic Journal
-of Statistics, Vol.6:2574-2601.
+\insertRef{Channarond2011}{graphon}
 
-Chan, S.H. and Airoldi, E.M. (2014) \emph{A consistent histogram
-estimator for exchangeable graph models}. Journal of Machine Learning Research Workshop
-and Conference Proceedings, Vol.32, No.1:208-216.
+\insertRef{chan2014}{graphon}
 }
 \seealso{
 \code{\link{est.SBA}}

@@ -9,8 +9,8 @@ est.completion(A, rank = NA, tolerance = 0.001, maxiter = 20,
 }
 \arguments{
 \item{A}{either \describe{
-\item{Case 1.}{an \code{(n-by-n)} binary adjacency matrix, or}
-\item{Case 2.}{a vector containing multiple of \code{(n-by-n)} binary adjacency matrices.}
+\item{Case 1.}{an \eqn{(n\times n)} binary adjacency matrix, or}
+\item{Case 2.}{a list containing multiple of \eqn{(n\times n)} binary adjacency matrices.}
 }}
 
 \item{rank}{an estimated rank condition for the matrix; \code{NA} for automatic guessing
@@ -27,7 +27,7 @@ the process, \code{TRUE} otherwise.}
 numerical errors, \code{FALSE} to stop the code.}
 }
 \value{
-an \code{(n-by-n)} corresponding probability matrix.
+an \eqn{(n\times n)} corresponding probability matrix.
 }
 \description{
 \code{est.completion} adopts a matrix completion scheme,
@@ -37,6 +37,7 @@ non-existent edges as missing entries and apply the completion scheme.
 See \code{\link[ROptSpace]{OptSpace}} for a more detailed introduction.
 }
 \examples{
+\dontrun{
 ## generate a graphon of type No.5 with 3 clusters
 W = gmodel.preset(3,id=5)
 
@@ -57,9 +58,9 @@ par(mfrow=c(1,3))
 image(res_r3); title("rank 3")
 image(res_r9); title("rank 9")
 image(res_rN); title("guessed rank")
+}
 
 }
 \references{
-Keshavan, R.H., Montanari, A., and Oh, S. (2009) \emph{Matrix Completion
-from a Few Entries}. Arxiv:0901.3150.
+\insertRef{Keshavan2010}{graphon}
 }

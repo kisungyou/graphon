@@ -1,17 +1,19 @@
 #' Generate one of pre-specified graphons.
 #'
 #' \code{gmodel.preset} generates one of pre-specified graphons
-#' of size \code{(n-by-n)}. Users can select one of 10 different graphons by
+#' of size \eqn{(n \times n)}. Users can select one of 10 different graphons by
 #' their \code{id}, an integer from 1 to 10. The table of available graphons
 #' follows that of the reference article given below.
+#'
 #'
 #' @param n the number of nodes for a graphon to be generated.
 #' @param id an integer from 1 to 10, each corresponding to a specific graphon model.
 #' @param sort a logical value; TRUE to sort in an decreasing order of degree, FALSE otherwise.
 #'
-#' @return an \code{(n-by-n)} graphon matrix.
+#' @return an \eqn{(n\times n)} graphon matrix.
 #'
 #' @examples
+#' \dontrun{
 #' ## Generate 3 random graphons of nodal size 100.
 #' n  = 100
 #' r3 = (sample(1:10,3))
@@ -29,10 +31,11 @@
 #'    W = gmodel.preset(100,id=i)
 #'  }
 #' }
+#' }
 #'
-#' @references Chan, S.H. and Airoldi, E.M. (2014) \emph{A consistent histogram
-#' estimator for exchangeable graph models}. Journal of Machine Learning Research Workshop
-#' and Conference Proceedings, Vol.32, No.1:208-216.
+#' @references
+#' \insertRef{chan2014}{graphon}
+#'
 #' @export
 gmodel.preset <- function(n, id=1, sort=TRUE){
   ## Parameters

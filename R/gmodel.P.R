@@ -1,10 +1,10 @@
 #' Generate graphs given a probability matrix
 #'
-#' Given an (n-by-n) probability matrix P, \code{gmodel.P} generates
+#' Given an \eqn{(n\times n)} probability matrix \eqn{P}, \code{gmodel.P} generates
 #' binary observation graphs corresponding to Bernoulli distribution
-#' whose parameter matches to the element of P.
+#' whose parameter matches to the element of \eqn{P}.
 #'
-#' @param P an \code{(n-by-n)} probability matrix.
+#' @param P an \eqn{(n\times n)} probability matrix.
 #' @param rep the number of observations to be generated.
 #' @param noloop a logical value; TRUE for graphs without self-loops, FALSE otherwise.
 #' @param symmetric.out a logical value; FALSE for generated graphs to be nonsymmetric, TRUE otherwise. Note that
@@ -63,7 +63,7 @@ gmodel.P <- function(P,rep=1,noloop=TRUE,symmetric.out=FALSE){
 
   ## Symmetric
   if ((symmetric.out)&&(!isSymmetric(P))){
-    stop("* gmodel.R : 'symmetric' option is only valid if where probability P matrix is symmetric.")
+    stop("* gmodel.P : 'symmetric' option is only valid if where probability P matrix is symmetric.")
   }
   if (symmetric.out){
     if (isSymmetric(P)){

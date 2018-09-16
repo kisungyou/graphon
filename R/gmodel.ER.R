@@ -17,15 +17,15 @@
 #' @param mode 'prob' (default) for edges to be drawn from Bernoulli
 #' distribution independently, or 'num' for a graph to have a fixed
 #' number of edges placed randomly
-#' @param par a real number in [0,1] for \code{mode='prob'}, or a
-#' positive integer [1,n*(n-1)/2] for \code{mode='num'}
+#' @param par a real number \eqn{\in [0,1]} for \code{mode='prob'}, or a
+#' positive integer \eqn{\in [1, n*(n-1)/2]} for \code{mode='num'}
 #' @param rep the number of observations to be generated.
 #'
 #' @return depending on \code{rep} value, either
 #' \describe{
-#' \item{(rep=1)}{an \code{(n-by-n)} observation matrix, or}
+#' \item{(rep=1)}{an \eqn{(n\times n)} observation matrix, or}
 #' \item{(rep>1)}{a length-\code{rep} list where each element
-#' is an observation is an \code{(n-by-n)} realization from the model.}
+#' is an observation is an \eqn{(n\times n)} realization from the model.}
 #' }
 #'
 #' @examples
@@ -41,10 +41,11 @@
 #' image(graph2[[2]])
 #' image(graph2[[3]])
 #'
-#' @references Erdos, P. and Renyi, A. (1959) \emph{On Random Graphs I}. Publications
-#' Mathematicae, Vol.6:290-297.
-#' @references Gilbert, E.N. (1959) \emph{Random Graphs}. Annals of Mathematical
-#' Statistics, Vol.30, No.4:1141-1144.
+#' @references
+#' \insertRef{Erdos1959}{graphon}
+#'
+#' \insertRef{Gilbert1959}{graphon}
+#'
 #' @export
 gmodel.ER <- function(n,mode='prob',par=0.5,rep=1){
   ## (1) Preprocessing

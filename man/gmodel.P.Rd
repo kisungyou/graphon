@@ -7,7 +7,7 @@
 gmodel.P(P, rep = 1, noloop = TRUE, symmetric.out = FALSE)
 }
 \arguments{
-\item{P}{an \code{(n-by-n)} probability matrix.}
+\item{P}{an \eqn{(n\times n)} probability matrix.}
 
 \item{rep}{the number of observations to be generated.}
 
@@ -25,9 +25,9 @@ is an observation is an \code{(n-by-n)} realization from the model.}
 }
 }
 \description{
-Given an (n-by-n) probability matrix P, \code{gmodel.P} generates
+Given an \eqn{(n\times n)} probability matrix \eqn{P}, \code{gmodel.P} generates
 binary observation graphs corresponding to Bernoulli distribution
-whose parameter matches to the element of P.
+whose parameter matches to the element of \eqn{P}.
 }
 \examples{
 ## set inputs

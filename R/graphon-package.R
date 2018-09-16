@@ -1,4 +1,4 @@
-#' graphon : a Collection of Graphon Estimation Methods
+#' graphon : A Collection of Graphon Estimation Methods
 #'
 #' The \pkg{graphon} provides a not-so-comprehensive list of methods for estimating graphon,
 #' a symmetric measurable function, from a single or multiple of observed networks.
@@ -44,29 +44,12 @@
 #'
 #' @author Kisung You
 #' @docType package
-#' @name graphon
+#' @name graphon-package
+#' @import Rdpack
+#' @importFrom utils packageVersion
 #' @importFrom ROptSpace OptSpace
 #' @importFrom graphics image par
 #' @importFrom stats quantile rbinom runif
-#' @references Erdos, P. and Renyi, A. (1959) \emph{On Random Graphs I}. Publications
-#' Mathematicae, Vol.6:290-297.
-#' @references Gilbert, E.N. (1959) \emph{Random Graphs}. Annals of Mathematical
-#' Statistics, Vol.30, No.4:1141-1144.
-#' @references Channarond, A., Daudin, J., and Robin, S. (2012) \emph{Classification
-#' and estimation in the SBM based on empirical degrees}. Electronic Journal
-#' of Statistics, Vol.6:2574-2601.
-#' @references Airoldi, E.M., Costa, T.B., and Chan, S.H. (2013) \emph{Stochastic
-#' blockmodel approximation of a graphon: Theory and consistent estimation}. Advances
-#' in Neural Information Processing Systems,  692-700.
-#' @references Chan, S.H. and Airoldi, E.M. (2014) \emph{A consistent histogram
-#' estimator for exchangeable graph models}. Journal of Machine Learning Research Workshop
-#' and Conference Proceedings, Vol.32, No.1:208-216.
-#' @references Chatterjee, S. (2015) \emph{Matrix estimation by universal singular
-#' value thresholding}. The Annals of Statistics, Vol.43, No.1:177-214.
-#' @references Zhang, Y., Levina, E., and Zhu, J. (2015) \emph{Estimating neighborhood edge
-#' probabilities by neighborhood smoothing}. Arxiv:1509.08588
-#' @references Mukherjee, S.S., Sarkar, P., and Lin, L. (2016) \emph{On estimating a
-#' mixture of graphons}. Arxiv:1606.02401
 NULL
 
 

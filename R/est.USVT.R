@@ -28,10 +28,10 @@
 #' image(res3$P); title("USVT with eta = 0.1")
 #'
 #' @param A either \describe{
-#' \item{Case 1.}{an \code{(n-by-n)} binary adjacency matrix, or}
-#' \item{Case 2.}{a vector containing multiple of \code{(n-by-n)} binary adjacency matrices.}
+#' \item{Case 1.}{an \eqn{(n\times n)} binary adjacency matrix, or}
+#' \item{Case 2.}{a list containing multiple of \eqn{(n\times n)} binary adjacency matrices.}
 #' }
-#' @param eta a positive number in (0,1) to control the level of thresholding.
+#' @param eta a positive number in \eqn{(0,1)} to control the level of thresholding.
 #'
 #'
 #' @return a named list containing
@@ -41,8 +41,8 @@
 #' \item{P}{a matrix of estimated edge probabilities.}
 #' }
 #'
-#'@references Chatterjee, S. (2015) \emph{Matrix estimation by universal singular
-#'value thresholding}. The Annals of Statistics, Vol.43, No.1:177-214.
+#' @references
+#' \insertRef{Chatterjee2015}{graphon}
 #'
 #' @export
 est.USVT <- function(A,eta=0.01){

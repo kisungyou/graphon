@@ -7,7 +7,7 @@
 gmodel.block(W, n, rep = 1, noloop = TRUE)
 }
 \arguments{
-\item{W}{a \code{(K-by-K)} blockmodel matrix.}
+\item{W}{a \eqn{(K\times K)} blockmodel matrix.}
 
 \item{n}{the number of nodes for each observation.}
 
@@ -19,22 +19,23 @@ gmodel.block(W, n, rep = 1, noloop = TRUE)
 a named list containing
 \describe{
 \item{G}{depending on \code{rep} value, \describe{
-\item{(rep=1)}{an \code{(n-by-n)} observation, or}
+\item{(rep=1)}{an \eqn{(n\times n)} observation, or}
 \item{(rep>1)}{a length-\code{rep} list where each element
-is an observation is an \code{(n-by-n)} realization from the model.}
+is an observation is an \eqn{(n\times n)} realization from the model.}
 }
 }
-\item{P}{an \code{(n-by-n)} probability matrix of generating each edge.}
+\item{P}{an \eqn{(n\times n)} probability matrix of generating each edge.}
 }
 }
 \description{
-Given a (K-by-K) stochastic blockmodel W, \code{gmodel.block}
+Given a \eqn{(K\times K)} stochastic blockmodel W, \code{gmodel.block}
 generates an (n-by-n) binary random graphs. All K blocks have
 same number of nodes, or almost identical if n is not a multiple
 of K. Parameter \code{noloop} controls whether generated observations
 have an edge from a node to itself, called a loop.
 }
 \examples{
+\dontrun{
 ## set inputs
 W = matrix(c(0.9,0.2,0.2,0.7),nr=2)
 n = 200
@@ -46,6 +47,7 @@ out <- gmodel.block(W,n,rep=2,noloop=TRUE)
 par(mfrow=c(1,2))
 image(out$G[[1]]); title("Observation 1")
 image(out$G[[2]]); title("Observation 2")
+}
 
 }
 \seealso{
