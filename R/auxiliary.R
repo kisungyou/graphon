@@ -153,7 +153,7 @@ aux_nbdsmooth <- function(A,N){
   # compute D : dissimilarity
   for (i in 1:(N-1)){
     for (j in (i+1):N){
-      val = max(abs(A_sq[i,]-A_sq[j,]))
+      val = max(abs(A_sq[i,]-A_sq[j,])) # tgtvec2 is Li Chen's
       D[i,j] = val
       D[j,i] = val
     }

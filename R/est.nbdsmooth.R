@@ -34,9 +34,11 @@
 #' res2 = est.nbdsmooth(A)
 #'
 #' ## compare true probability matrix and estimated ones
-#' par(mfrow=c(1,2))
+#' par(mfrow=c(2,2))
 #' image(P); title("original P")
 #' image(res2$P); title("nbdsmooth estimated P")
+#' hist(as.vector(P))
+#' hist(as.vector(res2$P))
 #' }
 #'
 #' @references
