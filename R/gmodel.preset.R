@@ -5,7 +5,6 @@
 #' their \code{id}, an integer from 1 to 10. The table of available graphons
 #' follows that of the reference article given below.
 #'
-#'
 #' @param n the number of nodes for a graphon to be generated.
 #' @param id an integer from 1 to 10, each corresponding to a specific graphon model.
 #' @param sort a logical value; TRUE to sort in an decreasing order of degree, FALSE otherwise.

@@ -12,6 +12,7 @@ Description: Provides a not-so-comprehensive list of methods for estimating grap
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
+Suggests: igraph
 Imports: stats, graphics, ROptSpace, utils, Rdpack
 RdMacros: Rdpack
 RoxygenNote: 6.1.1

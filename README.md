@@ -1,3 +1,5 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 graphon : A Collection of Graphon Estimation Methods
 ====================================================
 
@@ -14,4 +16,14 @@ You can install the released version from [CRAN](https://CRAN.R-project.org) wit
 install.packages("graphon")
 ```
 
-or the development version from github: \`\`\`r \#\# install.packages("devtools") devtools::install\_github("kisungyou/graphon")
+or the development version from github:
+
+``` r
+## install.packages("devtools")
+devtools::install_github("kisungyou/graphon")
+```
+
+Code of Conduct
+---------------
+
+Please note that the 'graphon' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
