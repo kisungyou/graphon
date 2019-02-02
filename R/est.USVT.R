@@ -7,6 +7,7 @@
 #' thresholding over singular values achieved from the decomposition.
 #'
 #' @examples
+#' \donttest{
 #' ## generate a graphon of type No.1 with 3 clusters
 #' W = gmodel.preset(3,id=1)
 #'
@@ -26,6 +27,7 @@
 #' image(P); title("original P")
 #' image(res2$P); title("USVT with eta = 0.01")
 #' image(res3$P); title("USVT with eta = 0.1")
+#' }
 #'
 #' @param A either \describe{
 #' \item{Case 1.}{an \eqn{(n\times n)} binary adjacency matrix, or}

@@ -27,7 +27,7 @@ such as piecewise lipschitz condition. Note that this method is
 for symmetric adjacency matrix only, i.e., undirected networks.
 }
 \examples{
-\dontrun{
+\donttest{
 ## generate a graphon of type No.4 with 3 clusters
 W = gmodel.preset(3,id=4)
 

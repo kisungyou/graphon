@@ -27,7 +27,7 @@ Then a consistent histogram estimator is utilized to estimate graphons based on
 estimated blocks in a given network.
 }
 \examples{
-\dontrun{
+\donttest{
 ## generate a graphon of type No.10 with 3 clusters
 W = gmodel.preset(3,id=10)
 

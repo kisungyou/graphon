@@ -21,6 +21,7 @@
 #' }
 #'
 #' @examples
+#' \donttest{
 #' ## generate a graphon of type No.6 with 3 clusters
 #' W = gmodel.preset(3,id=6)
 #'
@@ -42,6 +43,7 @@
 #' image(res2$P); title("SBA with delta=0.2")
 #' image(res3$P); title("SBA with delta=0.5")
 #' image(res4$P); title("SBA with delta=0.8")
+#' }
 #'
 #' @references
 #' \insertRef{Airoldi2013}{graphon}
