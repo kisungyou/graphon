@@ -37,7 +37,7 @@ modelP <- matrix(runif(16),nrow=4)
 out <- gmodel.P(modelP,rep=3,noloop=TRUE)
 
 ## Visualize generated graphs
-par(mfrow=c(1,3))
+par(mfrow=c(1,3), pty="s")
 image(out[[1]])
 image(out[[2]])
 image(out[[3]])

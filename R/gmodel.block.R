@@ -58,17 +58,19 @@ gmodel.block <- function(W,n,rep=1,noloop=TRUE){
   ## Construct Probability Matrix
   P = array(0,c(n,n))
   for (i in 1:n){
-    for (j in 1:n){
+    for (j in i:n){
       ui = u[i]
       uj = u[j]
-      P[i,j] = W[ui,uj]
+      theval = W[ui,uj]
+      P[i,j] = theval
+      P[j,i] = theval
     }
   }
 
   ## Construct a random graph with rep observations
   par_rep = rep
   par_loop = noloop
-  G = gmodel.P(P,rep=par_rep,noloop=par_loop)
+  G = gmodel.P(P,rep=par_rep,noloop=par_loop,symmetric.out=TRUE)
 
   ## output
   output = list()

@@ -50,13 +50,17 @@
 est.USVT <- function(A,eta=0.01){
   ## (1) Preprocessing
   # 1. check if A is adjacency
-  if (is.vector(A)&&is.list(A)){
-    check1 = unlist(lapply(A,nrow))
-    check2 = unlist(lapply(A,is.binAdj))
+  if (is.matrix(A)){ # case 1. a single matrix is given.
+    if (!is.binAdj(A)){
+      stop("* est.usvt : input A is not a valid binary adjacency matrix.")
+    }
+    matA = A
+  } else {
+    cond1 = is.list(A)
+    cond2 = (length(unique(unlist(lapply(A,nrow))))==1)
+    cond3 = is.binAdjvec(A)
 
-    cond1 = (length(unique(check1))==1)
-    cond2 = (all(check2==TRUE))
-    if (!(cond1&&cond2)){
+    if (!(cond1&&cond2&&cond3)){
       stop("* est.usvt : input vector A is not proper.")
     }
     sizem = dim(A[[1]])[1]
@@ -66,11 +70,6 @@ est.USVT <- function(A,eta=0.01){
       matA = matA + A[[i]]
     }
     matA = matA/length(A)
-  } else {
-    if (!is.binAdj(A)){
-      stop("* est.usvt : input A is not a proper adjacency matrix.")
-    }
-    matA = A
   }
 
   # 2. eta

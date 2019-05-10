@@ -2,9 +2,9 @@
 #' @noRd
 is.Adj <- function(A){
   # 1. size
-  cond1 = ((is.matrix(A))&&(nrow(A)==ncol(A)))
+  cond1 = (nrow(A)==ncol(A))
   # 2. symmetric : bounded
-  cond2 = (sum((A-t(A))^2)<1e-10)
+  cond2 = isSymmetric(A)
   # 3. no negative values
   cond3 = (all((A>=0)))
   # 4. diagonals are zeros
@@ -22,10 +22,10 @@ is.Adj <- function(A){
 #' @noRd
 is.binAdj <- function(A,sym=TRUE){
   # 1. size
-  cond1 = ((is.matrix(A))&&(nrow(A)==ncol(A)))
+  cond1 = (nrow(A)==ncol(A))
   # 2. symmetric : bounded
   if (sym){
-    cond2 = (sum((A-t(A))^2)<1e-10)
+    cond2 = isSymmetric(A)
   } else {
     cond2 = TRUE
   }
@@ -34,7 +34,7 @@ is.binAdj <- function(A,sym=TRUE){
   # 4. diagonals are zeros
   cond4 = (all(diag(A)==0))
   # 5. all binaries
-  cond5 = all((A==1)||(A==0))
+  cond5 = all((unique(as.vector(A))%in%c(0,1))==TRUE)
 
   if (cond1&&cond2&&cond3&&cond4&&cond5){
     return(TRUE)
@@ -55,21 +55,10 @@ is.binAdjvec <- function(vecA,sym=TRUE){
     symvec = FALSE
   }
 
-  cvec = array(0,c(length(vecA),1))
-  for (i in 1:length(vecA)){
-    if (is.binAdj(vecA[[i]],sym=symvec)){
-      cvec[i] = 1
-    }
-  }
-  if (sum(cvec)==length(cvec)){
-    cond2 = TRUE
-  } else {
-    cond2 = FALSE
-  }
-
-  if (cond1&&cond2){
+  cvec = unlist(lapply(vecA, is.binAdj, sym=symvec))
+  if (cond1&&all(cvec==TRUE)){
     return(TRUE)
-  } else{
+  } else {
     return(FALSE)
   }
 }

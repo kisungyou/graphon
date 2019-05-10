@@ -28,15 +28,15 @@ estimated blocks in a given network.
 }
 \examples{
 \donttest{
-## generate a graphon of type No.10 with 3 clusters
+## generate a graphon of type No.5 with 3 clusters
 W = gmodel.preset(3,id=10)
 
-## create a probability matrix for 100 nodes
-graphW = gmodel.block(W,n=100)
+## create a probability matrix for 20 nodes
+graphW = gmodel.block(W,n=20)
 P = graphW$P
 
 ## draw 23 observations from a given probability matrix
-A = gmodel.P(P,rep=23)
+A = gmodel.P(P,rep=23,symmetric.out=TRUE)
 
 ## run LG algorithm with a rough guess for K=2,3,4
 res2 = est.LG(A,K=2)

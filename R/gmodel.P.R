@@ -18,7 +18,7 @@
 #' out <- gmodel.P(modelP,rep=3,noloop=TRUE)
 #'
 #' ## Visualize generated graphs
-#' par(mfrow=c(1,3))
+#' par(mfrow=c(1,3), pty="s")
 #' image(out[[1]])
 #' image(out[[2]])
 #' image(out[[3]])
@@ -45,6 +45,9 @@ gmodel.P <- function(P,rep=1,noloop=TRUE,symmetric.out=FALSE){
   ## Rep 1 case
   if (rep==1){
     tmpmat = matrix(runif(n^2),nrow=n)
+    if (symmetric.out){
+      tmpmat = (tmpmat+t(tmpmat))/2
+    }
     G = (tmpmat<P)*1
     if (noloop){
       diag(G) = 0
@@ -53,6 +56,9 @@ gmodel.P <- function(P,rep=1,noloop=TRUE,symmetric.out=FALSE){
     G = list()
     for (i in 1:rep){
       tmpmat = matrix(runif(n^2),nrow=n)
+      if (symmetric.out){
+        tmpmat = (tmpmat+t(tmpmat))/2
+      }
       tmpG = 1*(tmpmat<P)
       if (noloop){
         diag(tmpG) = 0
@@ -62,23 +68,34 @@ gmodel.P <- function(P,rep=1,noloop=TRUE,symmetric.out=FALSE){
   }
 
   ## Symmetric
-  if ((symmetric.out)&&(!isSymmetric(P))){
-    stop("* gmodel.P : 'symmetric' option is only valid if where probability P matrix is symmetric.")
-  }
-  if (symmetric.out){
-    if (isSymmetric(P)){
-      if (rep==1){
-        tmpG = (G+t(G))/2
-        G = (tmpG>0)*1
-      } else {
-        for (i in 1:rep){
-          tmptmpG = G[[i]]
-          tmpG = tmptmpG+t(tmptmpG)
-          G[[i]] = (tmpG>0)*1
-        }
-      }
-    }
-  }
+  # if ((symmetric.out)&&(!isSymmetric(P))){
+  #   stop("* gmodel.P : 'symmetric' option is only valid if where probability P matrix is symmetric.")
+  # }
+  # if (symmetric.out){
+  #   if (rep==1){
+  #     G[upper.tri(G)] = G[lower.tri(G)]
+  #   } else {
+  #     for (i in 1:rep){
+  #       tmpG = G[[i]]
+  #       tmpG[upper.tri(tmpG)] = tmpG[lower.tri(tmpG)]
+  #       G[[i]] = tmpG
+  #     }
+  #   }
+  # }
+  #   if (isSymmetric(P)){
+  #     if (rep==1){
+  #       G[upper.tri(G)] = G[lower.tri(G)]
+  #       # tmpG = (G+t(G))/2
+  #       # G = (tmpG>0)*1
+  #     } else {
+  #       for (i in 1:rep){
+  #         tmpG = G[[i]]
+  #         tmpG[upper.tri(tmpG)] = tmpG[lower.tri(tmpG)]
+  #         G[[i]] = tmpG
+  #       }
+  #     }
+  #   }
+  # }
 
 
   ## return output
