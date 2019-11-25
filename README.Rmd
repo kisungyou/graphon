@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 [![](https://cranlogs.r-pkg.org/badges/graphon)](https://cran.r-project.org/package=graphon)
 <!-- badges: end -->
 
-*graphon* package provides a not-so-comprehensive list of methods for estimating graphon, a symmetric measurable function, from a single or multiple of observed networks. 
+**graphon** package provides a not-so-comprehensive list of methods for estimating graphon, a symmetric measurable function, from a single or multiple of observed networks. 
 
 ## Installation
 
@@ -36,7 +36,3 @@ or the development version from github:
 ## install.packages("devtools")
 devtools::install_github("kyoustat/graphon")
 ```
-
-## Code of Conduct 
-
-Please note that the 'graphon' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
