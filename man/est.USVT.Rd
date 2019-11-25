@@ -30,7 +30,6 @@ utilizes singular value decomposition of observations in addition to
 thresholding over singular values achieved from the decomposition.
 }
 \examples{
-\donttest{
 ## generate a graphon of type No.1 with 3 clusters
 W = gmodel.preset(3,id=1)
 
@@ -46,11 +45,11 @@ res2 = est.USVT(A,eta=0.01)
 res3 = est.USVT(A,eta=0.1)
 
 ## compare true probability matrix and estimated ones
-par(mfrow=c(1,3))
-image(P); title("original P")
-image(res2$P); title("USVT with eta = 0.01")
-image(res3$P); title("USVT with eta = 0.1")
-}
+opar <- par(mfrow=c(1,3), pty="s")
+image(P,      main="original P matrix")
+image(res2$P, main="USVT with eta=0.01")
+image(res3$P, main="USVT with eta = 0.1")
+par(opar)
 
 }
 \references{

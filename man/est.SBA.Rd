@@ -31,7 +31,6 @@ it uses clustering information to estimate graphon using a consistent
  histogram estimator.
 }
 \examples{
-\donttest{
 ## generate a graphon of type No.6 with 3 clusters
 W = gmodel.preset(3,id=6)
 
@@ -48,12 +47,12 @@ res3 = est.SBA(A,delta=0.5)
 res4 = est.SBA(A,delta=0.8)
 
 ## compare true probability matrix and estimated ones
-par(mfrow=c(1,4))
+opar <- par(mfrow=c(2,2), pty="s")
 image(P); title("original P")
 image(res2$P); title("SBA with delta=0.2")
 image(res3$P); title("SBA with delta=0.5")
 image(res4$P); title("SBA with delta=0.8")
-}
+par(opar)
 
 }
 \references{

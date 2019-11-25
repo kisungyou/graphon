@@ -7,7 +7,6 @@
 #' See \code{\link[ROptSpace]{OptSpace}} for a more detailed introduction.
 #'
 #' @examples
-#' \dontrun{
 #' ## generate a graphon of type No.5 with 3 clusters
 #' W = gmodel.preset(3,id=5)
 #'
@@ -24,11 +23,11 @@
 #' res_rN = est.completion(A,adjust=FALSE) # stop the code if guess works poorly
 #'
 #' ## visualize
-#' par(mfrow=c(1,3))
-#' image(res_r3); title("rank 3")
-#' image(res_r9); title("rank 9")
-#' image(res_rN); title("guessed rank")
-#' }
+#' opar <- par(mfrow=c(1,3), pty="s")
+#' image(res_r3, main="rank 3")
+#' image(res_r9, main="rank 9")
+#' image(res_rN, main="rank is guessed")
+#' par(opar)
 #'
 #' @references
 #' \insertRef{Keshavan2010}{graphon}

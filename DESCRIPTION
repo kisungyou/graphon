@@ -1,8 +1,8 @@
 Package: graphon
 Type: Package
 Title: A Collection of Graphon Estimation Methods
-Version: 0.3.2
-Authors@R: person(given="Kisung",family="You",role=c("aut","cre"),email="ksyou496@gmail.com",comment=c(ORCID="0000-0002-8584-459X"))
+Version: 0.3.3
+Authors@R: person(given="Kisung",family="You",role=c("aut","cre"),email="kyoustat@gmail.com",comment=c(ORCID="0000-0002-8584-459X"))
 Description: Provides a not-so-comprehensive list of methods for estimating graphon,
     a symmetric measurable function, from a single or multiple of observed networks. 
     For a detailed introduction on graphon and popular estimation techniques, 
@@ -15,4 +15,4 @@ LazyData: true
 Suggests: igraph
 Imports: stats, graphics, ROptSpace, utils, Rdpack
 RdMacros: Rdpack
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0

@@ -18,7 +18,6 @@
 #'
 #'
 #' @examples
-#' \donttest{
 #' ## generate a graphon of type No.5 with 3 clusters
 #' W = gmodel.preset(3,id=10)
 #'
@@ -35,12 +34,12 @@
 #' res4 = est.LG(A,K=4)
 #'
 #' ## compare true probability matrix and estimated ones
-#' par(mfrow=c(1,4))
-#' image(P); title("main")
-#' image(res2$P); title("LG with K=2")
-#' image(res3$P); title("LG with K=3")
-#' image(res4$P); title("LG with K=4")
-#' }
+#' opar <- par(mfrow=c(2,2), pty="s")
+#' image(P, main="original P matrix")
+#' image(res2$P, main="LG with K=2")
+#' image(res3$P, main="LG with K=3")
+#' image(res4$P, main="LG with K=4")
+#' par(opar)
 #'
 #' @references
 #' \insertRef{Channarond2011}{graphon}

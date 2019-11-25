@@ -27,7 +27,6 @@ such as piecewise lipschitz condition. Note that this method is
 for symmetric adjacency matrix only, i.e., undirected networks.
 }
 \examples{
-\donttest{
 ## generate a graphon of type No.4 with 3 clusters
 W = gmodel.preset(3,id=4)
 
@@ -42,10 +41,10 @@ A = gmodel.P(P,rep=5,symmetric.out=TRUE)
 res2 = est.nbdsmooth(A)
 
 ## compare true probability matrix and estimated ones
-par(mfrow=c(1,2))
-image(P); title("original P")
-image(res2$P); title("nbdsmooth estimated P")
-}
+opar <- par(mfrow=c(1,2), pty="s")
+image(P, main="original P matrix")
+image(res2$P, main="nbdsmooth estimated P")
+par(opar)
 
 }
 \references{

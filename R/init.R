@@ -10,12 +10,12 @@
   this.version = packageVersion("graphon")
 
   ## Print on Screen
-  packageStartupMessage("----------------------------------------------------------")
+  packageStartupMessage("**--------------------------------------------------------**")
   packageStartupMessage("**   graphon - A Collection of Graphon Estimation Methods")
   packageStartupMessage("**")
   packageStartupMessage("** Version    : ",this.version,"      (",this.year,")",sep="")
-  packageStartupMessage("** Maintainer : Kisung You (ksyou496@gmail.com)")
+  packageStartupMessage("** Maintainer : Kisung You (kyoustat@gmail.com)")
   packageStartupMessage("**")
   packageStartupMessage("** Please share any bugs or suggestions to the maintainer.")
-  packageStartupMessage("----------------------------------------------------------")
+  packageStartupMessage("**--------------------------------------------------------**")
 }

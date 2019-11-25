@@ -37,11 +37,6 @@
 #'   \item \code{\link{gmodel.preset}} has 10 exemplary graphon models for simulation.
 #'  }
 #'
-#' @section Acknowledgements:
-#' Some of the codes are translated from a \href{https://github.com/airoldilab/}{MATLAB package} developed by
-#' \href{https://engineering.purdue.edu/ChanGroup/stanleychan.html}{Stanley Chan} (Purdue) and
-#' \href{http://www.people.fas.harvard.edu/~airoldi/}{Edoardo Airoldi} (Harvard).
-#'
 #' @author Kisung You
 #' @docType package
 #' @name graphon-package
