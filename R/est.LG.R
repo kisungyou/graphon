@@ -34,7 +34,8 @@
 #' res4 = est.LG(A,K=4)
 #'
 #' ## compare true probability matrix and estimated ones
-#' opar <- par(mfrow=c(2,2), pty="s")
+#' opar = par(no.readonly=TRUE)
+#' par(mfrow=c(2,2), pty="s")
 #' image(P, main="original P matrix")
 #' image(res2$P, main="LG with K=2")
 #' image(res3$P, main="LG with K=3")

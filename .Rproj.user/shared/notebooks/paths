@@ -1,3 +1,4 @@
+/home/kisung/Desktop/graphon/DESCRIPTION="1E38C503"
 /home/kisung/Desktop/graphon/NAMESPACE="3D42E2E9"
 /home/kisung/Desktop/graphon/NEWS.md="DEF81BB7"
 /home/kisung/Desktop/graphon/R/auxiliary.R="6C83B959"
@@ -5,6 +6,8 @@
 /home/kisung/Desktop/graphon/R/est.LG.R="D83BE5E7"
 /home/kisung/Desktop/graphon/R/est.SBA.R="E6E40DC4"
 /home/kisung/Desktop/graphon/R/est.USVT.R="9D7F9B10"
+/home/kisung/Desktop/graphon/R/est.completion.R="E245549F"
+/home/kisung/Desktop/graphon/R/est.nbdsmooth.R="A5B55B62"
 /home/kisung/Desktop/graphon/R/gmodel.ER.R="F3346148"
 /home/kisung/Desktop/graphon/R/gmodel.P.R="F8D75C03"
 /home/kisung/Desktop/graphon/R/gmodel.block.R="B73D4578"

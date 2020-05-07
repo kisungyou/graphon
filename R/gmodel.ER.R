@@ -29,17 +29,16 @@
 #' }
 #'
 #' @examples
-#' ## Generate a graph of 100 nodes with a fixed number of edges
-#' graph1 = gmodel.ER(100,mode='num',par=100)
-#' image(graph1)
+#' ## generate 3 graphs with a global with probability 0.5
+#' graph3 = gmodel.ER(100,par=0.5,rep=3)
 #'
-#' ## Generate 3 graphs with a global with probability 0.5
-#' graph2 = gmodel.ER(100,par=0.5,rep=3)
-#'
-#' par(mfrow=c(1,3))
-#' image(graph2[[1]])
-#' image(graph2[[2]])
-#' image(graph2[[3]])
+#' ## visualize
+#' opar = par(no.readonly=TRUE)
+#' par(mfrow=c(1,3), pty="s")
+#' image(graph3[[1]], main="1st sample")
+#' image(graph3[[2]], main="2nd sample")
+#' image(graph3[[3]], main="3rd sample")
+#' par(opar)
 #'
 #' @references
 #' \insertRef{Erdos1959}{graphon}

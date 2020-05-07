@@ -41,7 +41,8 @@ A = gmodel.P(P,rep=5,symmetric.out=TRUE)
 res2 = est.nbdsmooth(A)
 
 ## compare true probability matrix and estimated ones
-opar <- par(mfrow=c(1,2), pty="s")
+opar = par(no.readonly=TRUE)
+par(mfrow=c(1,2), pty="s")
 image(P, main="original P matrix")
 image(res2$P, main="nbdsmooth estimated P")
 par(opar)

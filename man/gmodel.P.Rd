@@ -36,10 +36,12 @@ modelP <- matrix(runif(16),nrow=4)
 ## generate 3 observations without self-loops.
 out <- gmodel.P(modelP,rep=3,noloop=TRUE)
 
-## Visualize generated graphs
+## visualize generated graphs
+opar = par(no.readonly=TRUE)
 par(mfrow=c(1,3), pty="s")
-image(out[[1]])
-image(out[[2]])
-image(out[[3]])
+image(out[[1]], main="1st sample")
+image(out[[2]], main="2nd sample")
+image(out[[3]], main="3rd sample")
+par(opar)
 
 }

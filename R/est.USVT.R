@@ -22,7 +22,8 @@
 #' res3 = est.USVT(A,eta=0.1)
 #'
 #' ## compare true probability matrix and estimated ones
-#' opar <- par(mfrow=c(1,3), pty="s")
+#' opar = par(no.readonly=TRUE)
+#' par(mfrow=c(1,3), pty="s")
 #' image(P,      main="original P matrix")
 #' image(res2$P, main="USVT with eta=0.01")
 #' image(res3$P, main="USVT with eta = 0.1")

@@ -37,7 +37,8 @@
 #' res4 = est.SBA(A,delta=0.8)
 #'
 #' ## compare true probability matrix and estimated ones
-#' opar <- par(mfrow=c(2,2), pty="s")
+#' opar = par(no.readonly=TRUE)
+#' par(mfrow=c(2,2), pty="s")
 #' image(P); title("original P")
 #' image(res2$P); title("SBA with delta=0.2")
 #' image(res3$P); title("SBA with delta=0.5")

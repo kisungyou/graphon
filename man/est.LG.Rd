@@ -4,7 +4,7 @@
 \alias{est.LG}
 \title{Estimate graphons based on empirical degrees}
 \usage{
-est.LG(A, K)
+est.LG(A, K = 2)
 }
 \arguments{
 \item{A}{an \eqn{(n\times n)} binary adjacency matrix.}
@@ -43,7 +43,8 @@ res3 = est.LG(A,K=3)
 res4 = est.LG(A,K=4)
 
 ## compare true probability matrix and estimated ones
-opar <- par(mfrow=c(2,2), pty="s")
+opar = par(no.readonly=TRUE)
+par(mfrow=c(2,2), pty="s")
 image(P, main="original P matrix")
 image(res2$P, main="LG with K=2")
 image(res3$P, main="LG with K=3")

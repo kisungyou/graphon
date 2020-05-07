@@ -59,7 +59,8 @@ res_r9 = est.completion(A,rank=9)       # use rank-9 approximation
 res_rN = est.completion(A,adjust=FALSE) # stop the code if guess works poorly
 
 ## visualize
-opar <- par(mfrow=c(1,3), pty="s")
+opar = par(no.readonly=TRUE)
+par(mfrow=c(1,3), pty="s")
 image(res_r3, main="rank 3")
 image(res_r9, main="rank 9")
 image(res_rN, main="rank is guessed")
