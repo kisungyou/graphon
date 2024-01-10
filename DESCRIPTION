@@ -13,5 +13,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Suggests: igraph
 Imports: stats, graphics, ROptSpace, utils, Rdpack
+URL: https://github.com/kisungyou/graphon
 RdMacros: Rdpack
 RoxygenNote: 7.1.1
