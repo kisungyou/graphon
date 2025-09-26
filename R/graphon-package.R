@@ -37,8 +37,7 @@
 #'   \item \code{\link{gmodel.preset}} has 10 exemplary graphon models for simulation.
 #'  }
 #'
-#' @author Kisung You
-#' @docType package
+#' @noRd
 #' @name graphon-package
 #' @import Rdpack
 #' @importFrom utils packageVersion

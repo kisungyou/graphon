@@ -5,9 +5,7 @@
 
 <!-- badges: start -->
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/graphon?color=green)](https://CRAN.R-project.org/package=graphon)
-[![Travis build
-status](https://travis-ci.org/kisungyou/graphon.svg?branch=master)](https://travis-ci.org/kisungyou/graphon)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/graphon?color=green)](https://CRAN.R-project.org/package=graphon)
 [![](https://cranlogs.r-pkg.org/badges/graphon)](https://cran.r-project.org/package=graphon)
 <!-- badges: end -->
 
